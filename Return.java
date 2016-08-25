@@ -1,36 +1,62 @@
-import java.util.Arrays;
-import java.util.Scanner;
-public class Return{
-static int N=5;
-static int []sequence = new int[N];
-    public int[] twoSum(int[] numbers, int target) {
-        int tail = numbers.length-1;
-        int[] n = new int[2];
-        for (int i=0;i<tail;i++) {
-            for(int j=i+1;j<tail;j++) {
-                if(target ==(numbers[i]+numbers[j])) {
-                    n[0] = i+1;
-                    n[1] = j+1;
-System.out.println(" "+ n[0]+"\n2  "+ n[1]);
-                }
+
+
+#include <stdio.h>
+
+int main(void) {
+
+  
+    int grade[5], g, class_num[9], c;
+    char name[24], n;
+    float GPA=0.0, grade_point=0.0, result=0.0;
+
+    
+    for(n=0; n<25; n++) {
+        scanf(" %s", &name[n]);
+        printf("Please enter student names: %s.", name[n]);
+
+        
+        for(c=0; c<10; c++) {
+            scanf(" %d", &class_num[c]);
+            printf("Please enter amount of classes (max.10): %d", class_num[c]);
+
+                       for(g=0; g<=class_num; g++) {
+                scanf(" %d", &grade[g]);    
+                printf("Please enter students' grades: %d.", grade[g]);
             }
-        
-        return n;
+
+          
+            if (grade == "A"){
+                grade_point = 4.0;
+                break;
+            }
+            if (grade == "B"){
+                grade_point = 3.0;
+                break;
+            }
+            if (grade == "C")
+            {
+                grade_point =2.0;
+                break;
+            }
+            if (grade == "D"){
+                grade_point = 1.0;
+                break;
+            }
+            if (grade == "F"){
+                grade_point = 0.0;
+                break;
+            }
+
+         
+            result += grade_point[g];
+            GPA = result/class_num[c];
+        }
     }
 
-    public static void main(String[] args) {
-        
-Scanner s=new Scanner(System.in);
-System.out.println("enter the elements of array:");
-
-    for(int i=0;i<N;i++)
-        sequence[i]=s.nextInt();
-Scanner sc=new Scanner(System.in);
-System.out.println("enter the value to be added up:");
-
-        int value = sc.nextInt();
-        ReturnIndex r = new ReturnIndex();
-        int[] a = r.twoSum(sequence,value);
-      
+    
+    printf(“\n Student name \t Grades \t GPA”);
+    for(n=0; n<25; n++) {
+        printf(“ %s \t %d \t %f”, name[n], grade[g], GPA);
     }
+    return 0;
 }
